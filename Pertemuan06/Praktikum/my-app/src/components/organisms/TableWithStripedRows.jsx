@@ -2,10 +2,13 @@ import { Card } from "@material-tailwind/react";
 import { ButtonAtom } from "../atoms/ButtonAtom";
 import { TypographyAtom } from "../atoms/TypographyAtom";
 import { useMahasiswa } from "../../hooks/useMahasiswa";
+import { useNavigate } from "react-router-dom";
 
 const TABLE_HEAD = ["NPM", "Name", "Prodi", "Fakultas", "Minat", "Mata Kuliah"];
 
+
 export function TableWithStripedRows() {
+    const navigate = useNavigate();
     const { users, loading, error, retry } = useMahasiswa();
 
     if (loading) {
@@ -34,8 +37,8 @@ export function TableWithStripedRows() {
     return (
         <Card className="h-full w-full overflow-auto p-6 shadow-lg rounded-xl bg-white">
             <div className="flex justify-end p-4">
-                <ButtonAtom color="blue" className="transition-all duration-300 hover:bg-blue-700 text-white">
-                    Tambah Data
+                <ButtonAtom color="blue" onClick={() => navigate("/mahasiswa/tambah")}>
+                 Tambah Data
                 </ButtonAtom>
             </div>
 

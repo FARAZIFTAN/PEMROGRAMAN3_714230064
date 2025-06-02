@@ -33,7 +33,7 @@ export function LayoutDashboard({ children }) {
   }, []);
 
   return (
-    <div className="relative flex flex-col min-h-screen bg-blue-gray-100">
+    <div className="relative flex flex-col min-h-screen bg-gradient-to-br from-blue-50 to-blue-100">
       {/* Navbar */}
       <Navbar
         onMenuClick={toggleSidebar}
@@ -58,7 +58,7 @@ export function LayoutDashboard({ children }) {
         <main
           className={`flex-1 pt-20 px-6 transition-all duration-300 ${
             isDesktop && sidebarOpen ? "ml-64" : ""
-          }`}
+          } bg-white rounded-lg shadow-lg`}
         >
           {children}
         </main>

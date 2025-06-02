@@ -1,6 +1,7 @@
 import { useEffect, useState, useRef } from "react";
-import { getAllMahasiswa } from "../services/mahasiswaService";
 import axios from "axios";
+import { getAllMahasiswa } from "../services/mahasiswaService"; // Pastikan path ini sesuai dengan struktur project kamu
+// import { getAllMahasiswa } from "../services/mahasiswaService"; // Pastikan path ini sesuai dengan struktur project kamu
 
 export const useMahasiswa = () => {
     const [users, setUsers] = useState([]);
@@ -12,10 +13,10 @@ export const useMahasiswa = () => {
         setLoading(true);
         setError(null);
         try {
-            const data = await getAllMahasiswa(); // ✅ Pakai service
-            setUsers(data);
-            console.log("Fetched mahasiswa:", data);
-        } catch (err) {
+  const data = await getAllMahasiswa(); // ✅ Pakai service
+  setUsers(data);
+  console.log("Fetched mahasiswa:", data);
+} catch (err) {
             console.error("Error fetching mahasiswa:", err);
             setError(err);
         } finally {
